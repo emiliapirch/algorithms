@@ -8,7 +8,7 @@ using namespace std;
 // - spojny graf bez cykli
 // - z ktorego da sie dojsc z kazdego do kazdego innego miejsca na jeden sposob
 
-// LCA -------------------------------------------------------------------------
+// LCA ------------------------------------------------------------------------- polish
 // czyli znajdywanie najnizszego wspolnego przodka dwoch wierzcholkow
 // - dziala tylko na drzewach
 // - czas O(log n) 
@@ -31,6 +31,33 @@ using namespace std;
 // 10^6 * long long = 8 mb
 
 // 2^n == 1 << n
+//
+//
+//
+// algorithms for distances between vertices: BFS, Dijkstra, Berman Ford, LCA
+
+// Tree definitions:
+// - a connected graph that has n-1 edges
+// - a connected graph without cycles
+// - from which it is possible to reach every other node from any one node
+
+// LCA ------------------------------------------------------------ english
+// i.e., finding the lowest common ancestor of two vertices
+// - works only on trees
+// - time O(log n)
+
+// Step by step...
+// 0. DFS(), save parents and distances from the root
+// 1. Equalize the vertices: the one that is lower goes to the vertex that is higher
+//    - now they are at the same depth
+// 2. Check if the vertices are the same (is a == b)
+// 3. Go up from the vertices in powers of two until the paths no longer intersect
+//    - if after a jump of 2^n a == b, then this closest ancestor can be skipped,
+//      so you must take a smaller jump
+// 4. The parent of the vertices where you stop is the result
+
+// offline – does not allow modifications to the graph
+// n log n
 
 constexpr int LIM = 1e6 + 10;
 constexpr int LOG = 21;

@@ -28,6 +28,6 @@ int main() {
             r = m;
     }
 
-    if (arr[r] == x) cout << "istnieje\n";
-    else cout << "nie istnieje\n";
+    if (arr[r] == x) cout << "exists\n";
+    else cout << "does not exist\n";
 }

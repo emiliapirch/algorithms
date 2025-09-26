@@ -15,6 +15,7 @@ struct node {
 
 void dijkstra() {
     priority_queue<para, vector<para>, greater<para>> pq; // sortuje wedlug .first, rosnąco w prawo
+							  // sorts according to .first, from the smallest to the biggest
 
     arr[1].dis = 0;
     pq.push({0, 1});
@@ -26,7 +27,7 @@ void dijkstra() {
         if (arr[f.second].visited) continue;
         arr[f.second].visited = true;
 
-        for (auto droga : arr[f.second].edges) {
+        for (auto droga : arr[f.second].edges) { // droga == route in polish
             if (droga.first + cost < arr[droga.second].dis) {
                 arr[droga.second].dis = droga.first + cost;
                 pq.push({arr[droga.second].dis, droga.second});

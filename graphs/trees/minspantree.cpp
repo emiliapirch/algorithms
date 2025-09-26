@@ -55,7 +55,7 @@ int main() {
         p[A] = B;
     }
 
-    sort(del_edge.begin(), del_edge.end()); // od najw do najm
+    sort(del_edge.begin(), del_edge.end()); // from the biggest to the smallest
     
     long long suma = 0;
     for (int i=del_edge.size()-1; i>=0; i--) {

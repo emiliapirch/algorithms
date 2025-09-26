@@ -11,14 +11,14 @@ int main() {
     int n, sum1, sum2;
     cin >> n;
 
-    for (int i=0; i<n; i++) {
+    for (int i = 0; i < n; i++) {
         cin >> t[i];
     }
 
-    for (int i=0; i < (1 << n); i++) {
+    for (int i = 0; i < (1 << n); i++) {
         sum1 = sum2 = 0; 
 
-        for (int j=0; j<n; j++) {
+        for (int j = 0; j < n; j++) {
             if (i & (1 << j)) 
                 sum1 += t[j];
             else 
@@ -26,11 +26,11 @@ int main() {
         }
 
         if (sum1 == sum2) {
-            cout << "TAK\n";
+            cout << "YES\n";
             return 0;
         }
     }
 
-    cout << "NIE\n";
+    cout << "NO\n";
 }
 

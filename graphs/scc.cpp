@@ -8,6 +8,12 @@ using namespace std;
 // - w kazdej sss jest cykl
 // - graf transponowany to graf, w ktorym wszystkie krawedzie sa odwrocone
 
+// English:
+// According to the reverse order of postorder, run two DFSs on the transposed graph
+// There are two DFSs – one to determine the postorder and the other on the transposed graph to find the SCCs
+// Each SCC contains a cycle
+// The transposed graph is a graph in which all edges are reversed
+
 typedef pair<int, int> para;
 
 constexpr int LIM = 1e6 + 10;
@@ -47,24 +53,24 @@ int main() {
     int n, m, a, b;
     cin >> n >> m;
 
-    for (int i=0; i<m; i++) {
+    for (int i = 0; i < m; i++) {
         cin >> a >> b;
         edges[a].push_back(b);
         edges_rev[b].push_back(a);
     }
 
-    // ustawienie postorderu
-    for (int i=1; i<=n; i++) 
+    // set the postorder
+    for (int i = 1; i <= n; i++) 
         if (!vis[i]) 
             DFS(i);
 
-    // resetowanie vis
-    for (int i=1; i<=n; i++) 
+    // reset the vis arr
+    for (int i = 1; i <= n; i++) 
         vis[i] = false;
 
-    // wedlug postorderu revDFS
+    // based on the postorder: revDFS
     int ow = 1;
-    for (int i=postorder.size() - 1; i>0; i++) 
+    for (int i = postorder.size() - 1; i > 0; i++) 
         if (!vis[i]) 
             revDFS(postorder[i].second, ow++);
 }
